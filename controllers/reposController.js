@@ -1,14 +1,14 @@
 class ReposController {
-    async getAll() {
+    async getAll(req, res) {
 
     }
-    async getOne() {
+    async getOne(req, res) {
 
     }
-    async add() {
+    async add(req, res) {
 
     }
-    async delete() {
+    async delete(req, res) {
 
     }
 }
