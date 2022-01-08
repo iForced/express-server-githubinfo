@@ -1,23 +1,18 @@
 import express from 'express'
-import serverRoutes from './routes/serverRoutes.js'
-import cors from 'cors'
 import dotenv from 'dotenv'
 import sequelize from './db.js'
 import {Repo, User} from "./models/models.js";
+import router from "./routes/index.js";
 
 dotenv.config()
 
 const app = express()
 
-app.use(serverRoutes)
-app.use(cors)
 app.use(express.json())
 
 const PORT = process.env.PORT || 5000
 
-app.get('/', (req, res) => {
-    res.send('alo')
-})
+app.use('/api', router)
 
 const start = async () => {
     try {

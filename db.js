@@ -4,13 +4,13 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 export default new Sequelize(
-    'github_info',
-    'postgres',
-    '1234',
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
     {
         dialect: 'postgres',
-        host: '127.0.0.1',
-        port: 5444,
+        host: process.env.DB_HOST,
+        port: process.env.DB_PORT,
     }
 
 )
