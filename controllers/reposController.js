@@ -11,10 +11,10 @@ class ReposController {
 
         return res.json(repos)
     }
-    async getOneByOwner(req, res) {
-        const {owner} = req.params
+    async getOneById(req, res) {
+        const {id} = req.params
 
-        const repo = await Repo.findOne({where: {owner}})
+        const repo = await Repo.findOne({where: {id}})
 
         return res.json(repo)
     }
