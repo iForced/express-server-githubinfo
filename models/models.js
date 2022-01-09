@@ -12,9 +12,9 @@ export const User = sequelize.define('user', {
 export const Repo = sequelize.define('repo', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type: DataTypes.STRING, unique: true, allowNull: false},
-    description: {type: DataTypes.STRING, unique: true},
+    description: {type: DataTypes.STRING},
     html_url: {type: DataTypes.STRING},
-    owner: {type: DataTypes.INTEGER, allowNull: false},
+    owner: {type: DataTypes.STRING, allowNull: false},
 })
 
 User.hasMany(Repo)

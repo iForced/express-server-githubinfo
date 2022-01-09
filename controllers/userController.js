@@ -11,7 +11,7 @@ class UserController {
 
         return res.json(users)
     }
-    async getOne(req, res) {
+    async getOneById(req, res) {
         const {id} = req.params
 
         const user = await User.findOne({where: {id}})
