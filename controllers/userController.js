@@ -18,20 +18,6 @@ class UserController {
 
         return res.json(user)
     }
-    async add(req, res) {
-        const {login} = req.body
-
-        const createdUser = await User.create({login})
-
-        return res.json(createdUser)
-    }
-    async delete(req, res) {
-        const {id} = req.params
-
-        await User.destroy({where: {id}})
-
-        return res.json(id)
-    }
 }
 
 export default new UserController()
