@@ -20,9 +20,9 @@ class ReposController {
     }
     async add(req, res) {
         try {
-            const {name, description, owner} = req.body
+            const {name, description, owner, userId} = req.body
 
-            const createdRepo = await Repo.create({name, description, owner})
+            const createdRepo = await Repo.create({name, description, owner, userId})
 
             return res.json(createdRepo)
         } catch (e) {
