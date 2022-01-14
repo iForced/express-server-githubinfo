@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=github_info
+    ports:
+      - "5444:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "5445:80"
+
+  server:
+    image: express-server-github-info
+    ports:
+      - "7001:7000"
