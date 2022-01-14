@@ -21,14 +21,11 @@ export const Repo = sequelize.define('repo', {
 })
 export const Contributor = sequelize.define('contributor', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    name: {type: DataTypes.STRING, unique: true, allowNull: false},
-})
-export const RepoContributor = sequelize.define('repoContributor', {
-    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    userId: {type: DataTypes.INTEGER, unique: true, allowNull: false},
 })
 
 User.hasMany(Repo)
 Repo.belongsTo(User)
 
-Contributor.belongsToMany(Repo, {through: RepoContributor})
-Repo.belongsToMany(Contributor, {through: RepoContributor})
+Contributor.belongsToMany(Repo, {as: 'Contributor', through: 'repoContributor'})
+Repo.belongsToMany(Contributor, {as: 'Repo', through: 'repoContributor'})

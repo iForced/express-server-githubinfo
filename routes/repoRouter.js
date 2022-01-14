@@ -7,5 +7,6 @@ router.get('/', ReposController.getAll)
 router.get('/:id', ReposController.getOneById)
 router.post('/add', ReposController.add)
 router.delete('/:id', ReposController.delete)
+router.post('/contribute', ReposController.contribute)
 
 export default router

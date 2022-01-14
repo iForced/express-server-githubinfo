@@ -1,4 +1,4 @@
-import {Repo} from "../models/models.js";
+import { Contributor, Repo } from '../models/models.js'
 
 class ReposController {
     async getAll(req, res) {
@@ -35,6 +35,23 @@ class ReposController {
         await Repo.destroy({where: {id}})
 
         return res.json(id)
+    }
+    async contribute(req, res) {
+        try {
+            const {userId, repoId} = req.body
+
+            const contributor = await Contributor.create({userId})
+            const repoForFollow = await Repo.findOne({where: {id: repoId}})
+
+            repoForFollow.add(contributor)
+
+            // repoForFollow.createContributor(contributor)
+
+            return res.json('contributed')
+
+        } catch (e) {
+            console.log(e.message)
+        }
     }
 }
 
